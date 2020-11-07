@@ -1,16 +1,16 @@
-body {
-
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans CJK JP";
 }
-
-
 .header-background-image {
-  height:850px;
+  height: 850px;
   background-image: url("png/メインビジュアル.png");
   background-position: center -170px;
   background-repeat: no-repeat;
   background-color: #F2F3F7;
+  width: 100%;
 }
-
 .background-color {
   background-color: #FFFFFF;
   height: 68px;
@@ -19,17 +19,14 @@ body {
   position: relative;
   top: 60px;
   left: 100px;
-  margin-right: 200px
+  margin-right: 200px;
 }
-
-
 .header-logo {
   float:left;
   position: relative;
   top: 15px;
   left: 40px;
 }
-
 .header-list {
   float: right;
   list-style: none;
@@ -40,18 +37,28 @@ body {
   top: 15px;
   right:40px;
 }
-
 .header-list-main {
   padding-left: 40px;
-  padding-right:20px;
+  padding-right:40px;
   font-size: 14px;
 }
-.header-list-after-a{
+.header-list-main::after {
+  content: "\A|";
+  float: right;
+  position: relative;
+  top: -25px;
+  left: 40px;
+}
+.header-list-main:last-child::after {
+  content: none;
+}
+.list-about {
   text-decoration: none;
   color: #000000;
+  display: table-cell;
+  text-align: center;
 }
-
-.header-list-after-a::after{
+.list-about::after {
   text-decoration: none;
   content:"\A企業情報";
   white-space: pre;
@@ -59,13 +66,13 @@ body {
   color: #777777;
   line-height: 2;
 }
-
-.header-list-after-b{
+.list-news {
   text-decoration: none;
   color: #000000;
+  display: table-cell;
+  text-align: center; 
 }
-
-.header-list-after-b::after{
+.list-news::after {
   content:"\Aニュース";
   white-space: pre;
   font-size: 10px;
@@ -73,11 +80,13 @@ body {
   line-height: 2;
   text-decoration: none;
 }
-.header-list-after-c{
+.list-service{
   text-decoration: none;
   color: #000000;
+  display: table-cell;
+  text-align: center;
 }
-.header-list-after-c::after{
+.list-service::after{
   content:"\Aサービス＆製品情報";
   white-space: pre;
   font-size: 10px;
@@ -85,11 +94,13 @@ body {
   line-height: 2;
   text-decoration: none;
 }
-.header-list-after-d{
+.list-contact{
   text-decoration: none;
   color: #000000;
+  display: table-cell;
+  text-align: center;
 }
-.header-list-after-d::after{
+.list-contact::after{
   content:"\A問い合わせ";
   white-space: pre;
   font-size: 10px;
@@ -97,42 +108,252 @@ body {
   line-height: 2;
   text-decoration: none;
 }
-
-.header-h {
+.heading {
+  display: flex;
+  flex-direction: column;
+  float: left;
+  text-align: left;
   position: relative;
   top: 90px;
-  left: 100px;
-  font-size: 72px;
+  font-size: 32px;
   color: #D4004E;
-  font-family: ;
-}
-
-.header-p {
-  position: relative;
-  top: 30px;
-  left: 100px;
-  color: #D4004E;
+} 
+.heading-secondary {
   line-height: 40px;
   font-weight: 600;
   font-family: 'Noto Sans CJK JP';
-}
-
-.header-p-span {
+  font-size: 15px;
+  letter-spacing: 0.2em;
+} 
+.heading-secondary-after {
   text-align: center;
 }
-
-.header-s {
-  color: #E00052;
+.header-scroll {
+  margin-top: -50px;
   text-align: center;
-  margin-top: -70px;
 }
-
-.header-s-span {
-  writing-mode:vertical-rl;
-  line-height: 5;
-}
-
 .header-l {
   padding-left: 30px;
   padding-top: 12px;
+}
+@media screen and (max-width: 1150px) {
+  .header-list-main{
+    font-size: 7px;
+  }
+}
+.article-about {
+  margin: 100px;
+  position: relative;
+}
+.article-top-primary {
+  font-size: 43px; 
+  position: relative;
+  top: 50px;
+}  
+.article-top-primary::before{
+  content:"\A!";
+  color: #D4004E;
+  font-size: 80px;
+  position: relative;
+  top: 25px;
+  right: 20px;
+}
+.article-content {
+  background-color: #F2F3F7;
+  height: 200px;
+  padding: 50px;
+  margin: 5px;
+  font-size: 17px;
+  line-height: 50px;
+}
+.article-content-link {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  text-decoration: none;
+  background-color: #D4004E;
+  padding: 15px 30px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: bold;
+}
+.article-content-link::after {
+  content: "\A>";
+  padding-left: 30px;
+}
+.article-main {
+  display: flex;
+  margin: 100px;
+  padding-top: 100px;
+}
+.article-top-secondary {
+  padding-left: 15px;
+  border: 2px solid #707070;
+  width: 100%;
+  height: 300px;
+  position: relative;
+}  
+.article-image {
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+.article-top-secondary-content{
+  padding-top: 5px;
+  padding-left: 10%;
+  padding-right: 10%; 
+}
+.article-text{
+  padding-bottom: 5%;
+  color: #D4004E;
+  font-size: 20px;
+}
+.article-text-content {
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 2em;
+}
+.article-content-index::after{
+  content: "\A>";
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.article-content-index{
+  text-decoration: none;
+  background-color: #D4004E;
+  padding: 15px 20px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: bold;
+  position: relative;
+  top: 60px;
+  left: 60px;
+}
+.News-content {
+  background-color: #F2F3F7;
+  padding: 30px;
+  margin: 5px; 
+  margin-bottom: 15px;
+  font-size: 13px;
+  display: flex;
+  letter-spacing: 1.7px;
+  justify-content: space-around;
+}
+.news-event-education {
+  color: #E5A31C;
+  border: 1px solid #E5A31C;
+  padding: 5px;
+  margin-right: 15px;
+  font-size: 12px;
+  font-family: "ITC Avant Garde Gothic";
+}
+.news-event-after{
+  padding-right: 20px;
+  padding-left: 20px; 
+}
+.news-event-after::after{
+  content: "\A|";
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 20px;
+}
+.news-event-content::after{
+  content: "\A>";
+  padding-right: 25px;
+  padding-left: 25px;
+  font-size: 20px;
+}
+.news-event-lab {
+  color: #D4004E;
+  border: 1px solid #D4004E;
+  padding: 5px;
+  padding-left: 55px;
+  padding-right: 55px;
+  margin-right: 15px;
+  font-size: 12px;
+  font-family: "ITC Avant Garde Gothic";
+}
+.news-event-sience {
+  color: #5FA153;
+  border: 1px solid #5FA153;
+  padding: 5px;
+  padding-left: 23px;
+  padding-right: 23px;
+  margin-right: 15px;
+  font-size: 12px;
+  font-family: "ITC Avant Garde Gothic";
+}
+.news-event-unko {
+  color: #50BBF4;
+  border: 1px solid #50BBF4;
+  padding: 5px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-right: 15px;
+  font-size: 12px;
+  font-family: "ITC Avant Garde Gothic";
+}
+.main-top {
+  display: block;
+  position: absolute;
+  left:50%;
+  transform: translateY(-50%) translateX(-50%);
+  font-weight: bold;
+  background-color: #D4004E;
+  margin: auto;
+  margin-top: 25px;
+  padding: 10px 70px;
+  color: #ffffff;
+  font-size: 13px;
+  text-decoration: none;
+}
+.main-top::after{
+  content: "\A>";
+  font-size: 13px;
+  margin-left: 50px;
+  position: absolute;
+}
+.footer-back {
+  background-color: #333333;
+  height: 350px;
+  margin: 0 auto;
+  text-align: center;
+  color: #ffffff;
+}
+.footer-list {
+  display: inline-flex;
+  list-style: none;
+  margin: 50px;
+  font-size: 10px;
+}
+.footer-list-after {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 15px;
+}
+.footer-list-first::after {
+  content:"\A|";
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.footer-list-first:last-child::after {
+  content: none;
+}
+.footer-icon {
+  padding: 10px;
+  margin-bottom: 40px;
+  letter-spacing: 0.5em;
+}
+.footer-facebook {
+  background-color: #FFFFFF;
+  text-decoration: none;
+  color: #333333;
+  padding: 15px;
+  font-size: 13px;
+}
+.footer-copyright {
+  padding-top: 50px;
+  font-size: 9px;
 }
